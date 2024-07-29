@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+function calculateElectricityBill(units) {
+    let bill;
+
+    if (units <= 100) {
+        bill = units * 0.5; 
+    } else if (units <= 200) {
+        bill = 100 * 0.5 + (units - 100) * 1; 
+    } else {
+        bill = 100 * 0.5 + 100 * 1 + (units - 200) * 1.5;
+    }
+
+    return bill.toFixed(2); 
+}
+
+function getUserInputAndCalculateBill() {
+
+    const units = parseFloat(prompt("Enter your electricity usage in units:"));
+
+    if (isNaN(units) || units < 0) {
+        console.error("Error: Please enter a valid non-negative number for units.");
+        return;
+    }
+
+    const bill = calculateElectricityBill(units);
+
+    document.write(`Your electricity bill for ${units} units is $${bill}.`);
+}
+
+getUserInputAndCalculateBill();
+
+    </script>
+
+</body>
+</html>

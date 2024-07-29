@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+      
+function calculateTax(income) {
+    let tax;
+
+    if (income <= 0) {
+        return "Invalid income amount.";
+    }
+
+    if (income <= 10000) {
+        tax = 0;
+    } else if (income <= 30000) {
+        tax = (income - 10000) * 0.10;
+    } else if (income <= 60000) {
+        tax = (income - 30000) * 0.20 + (20000 * 0.10); 
+    } else {
+        tax = (income - 60000) * 0.30 + (30000 * 0.20) + (20000 * 0.10); 
+    }
+
+    return tax;
+}
+
+function displayTaxResult(income) {
+    const tax = calculateTax(income);
+    console.log(`For an income of $${income}, the tax is $${tax.toFixed(2)}.`);
+}
+
+displayTaxResult(5000);  
+displayTaxResult(15000);  
+displayTaxResult(45000);  
+displayTaxResult(70000);   
+displayTaxResult(-5000);  
+
+    </script>
+
+</body>
+</html>

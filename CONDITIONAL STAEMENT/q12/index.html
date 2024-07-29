@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Type Determiner</title>
+</head>
+<body>
+    <h1>Triangle Type Determiner</h1>
+    <button onclick="determineTriangleType()">Determine Triangle Type</button>
+
+    <script>
+        function determineTriangleType() {
+            // Get the lengths of the sides from the user
+            const a = parseFloat(prompt("Enter the length of side A:"));
+            const b = parseFloat(prompt("Enter the length of side B:"));
+            const c = parseFloat(prompt("Enter the length of side C:"));
+
+            // Check if the sides are valid numbers
+            if (isNaN(a) || isNaN(b) || isNaN(c) || a <= 0 || b <= 0 || c <= 0) {
+                alert("Please enter valid positive numbers for the sides.");
+                return;
+            }
+
+            // Check if the sides can form a triangle
+            if (a + b <= c || a + c <= b || b + c <= a) {
+                alert("The given sides do not form a valid triangle.");
+                return;
+            }
+
+            // Determine the type of triangle
+            let triangleType = "";
+            if (a === b && b === c) {
+                triangleType = "Equilateral";
+            } else if (a === b || b === c || a === c) {
+                triangleType = "Isosceles";
+            } else {
+                triangleType = "Scalene";
+            }
+
+            // Display the result
+            alert(`The triangle is ${triangleType}.`);
+        }
+    </script>
+</body>
+</html>

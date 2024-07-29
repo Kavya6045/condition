@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+function calculateBMI(weight, height) {
+
+    const bmi = weight / (height * height);
+    let category;
+
+    if (bmi < 18.5) {
+        category = 'Underweight';
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+        category = 'Normal weight';
+    } else if (bmi >= 25 && bmi < 29.9) {
+        category = 'Overweight';
+    } else {
+        category = 'Obese';
+    }
+
+    return { bmi: bmi.toFixed(2), category };
+}
+
+function getUserInputAndCalculateBMI() {
+
+    const weight = parseFloat(prompt("Enter your weight in kilograms:"));
+
+    const height = parseFloat(prompt("Enter your height in meters:"));
+
+    if (isNaN(weight) || weight <= 0 || isNaN(height) || height <= 0) {
+        console.error("Error: Weight and height must be positive numbers.");
+        return;
+    }
+
+    const { bmi, category } = calculateBMI(weight, height);
+
+    console.log(`Your BMI is ${bmi} and you are classified as ${category}.`);
+}
+
+getUserInputAndCalculateBMI();
+
+    </script>
+
+</body>
+</html>

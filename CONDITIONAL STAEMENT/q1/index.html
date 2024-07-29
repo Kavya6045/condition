@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+    
+    function checkNumber(number) {
+        if (number > 0) {
+            console.log(number + " is positive.");
+        } else if (number < 0) {
+            console.log(number + " is negative.");
+        } else {
+            console.log(number + " is zero.");
+        }
+    }
+
+    const num = prompt("Enter a number:");
+    const parsedNum = parseFloat(num);
+
+    if (!isNaN(parsedNum)) {
+        checkNumber(parsedNum);
+    } else {
+        console.log("That's not a valid number.");
+    }
+
+    </script>
+
+</body>
+</html>
